@@ -1,0 +1,54 @@
+[
+  {
+    "question": "Where is the clinic located?",
+    "answer": "Our clinic is located at 123 Health Street, Wellness City, near Central Park. We are on the second floor of the Wellness Plaza Building."
+  },
+  {
+    "question": "How do I get directions to the clinic?",
+    "answer": "You can find us on Google Maps by searching 'Wellness Medical Clinic'. Freeway exits 7A and 7B both lead directly to Health Street. If you need assistance, please call our front desk for detailed directions."
+  },
+  {
+    "question": "Is parking available at the clinic?",
+    "answer": "Yes, free patient parking is available behind the Wellness Plaza Building. We also have designated handicap parking spots near the main entrance."
+  },
+  {
+    "question": "What are the clinic hours of operation?",
+    "answer": "We are open Monday through Friday from 8:00 AM to 5:00 PM, and Saturday from 9:00 AM to 12:00 PM. The clinic is closed on Sundays and major public holidays."
+  },
+  {
+    "question": "Which insurance providers do you accept?",
+    "answer": "We accept most major insurance plans, including Blue Cross Blue Shield, Aetna, Cigna, UnitedHealthcare, and Medicare. Please contact your insurance provider to confirm coverage before your appointment."
+  },
+  {
+    "question": "What payment methods are accepted at the clinic?",
+    "answer": "We accept cash, debit cards, credit cards (Visa, MasterCard, American Express), and Health Savings Account (HSA) cards. For billing assistance, please reach out to our front desk."
+  },
+  {
+    "question": "What are your billing policies?",
+    "answer": "Payments are due at the time of service unless prior arrangements have been made. You will receive an itemized bill for any services not covered by your insurance. We also offer payment plans for eligible patients."
+  },
+  {
+    "question": "What documents should I bring to my appointment?",
+    "answer": "Please bring a valid photo ID, your insurance card, a list of any current medications, and any previous medical records relevant to your visit."
+  },
+  {
+    "question": "What should I expect on my first visit?",
+    "answer": "During your first visit, you will complete a patient information form and meet with your doctor to review your medical history. Please arrive 15 minutes early to allow time for check-in."
+  },
+  {
+    "question": "What should I bring for my appointment?",
+    "answer": "Please bring your insurance card, photo ID, any recent lab results, referral documents (if applicable), and a list of your current medications."
+  },
+  {
+    "question": "What is the clinic's cancellation policy?",
+    "answer": "We require at least 24 hours' notice for appointment cancellations. Cancellations made with less than 24 hours' notice may result in a fee."
+  },
+  {
+    "question": "What is the policy for late arrivals?",
+    "answer": "If you arrive more than 15 minutes late for your appointment, we may need to reschedule to accommodate other patients. Please call ahead if you expect to be delayed."
+  },
+  {
+    "question": "What COVID-19 safety protocols are in place at the clinic?",
+    "answer": "All patients and staff are required to wear masks in the clinic. Hand sanitizers are available throughout the facility, and all exam rooms are sanitized after each visit. If you have COVID-like symptoms, please inform us before your appointment."
+  }
+]
