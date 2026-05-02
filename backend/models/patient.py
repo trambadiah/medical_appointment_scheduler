@@ -1,27 +1,15 @@
-from pydantic import BaseModel, EmailStr, Field
-from typing import Optional, List
-from datetime import date, datetime
+from sqlalchemy import Column, Integer, String, Date, ForeignKey
+from sqlalchemy.orm import relationship
+from backend.db.base_class import Base
 
-class PatientBase(BaseModel):
-    first_name: str = Field(..., min_length=2, max_length=50)
-    last_name: str = Field(..., min_length=2, max_length=50)
-    email: EmailStr
-    phone: str = Field(..., regex=r"^\+?[1-9]\d{1,14}$")
-    date_of_birth: date
-
-class PatientCreate(PatientBase):
-    pass
-
-class PatientResponse(PatientBase):
-    id: int
-    created_at: datetime
-    updated_at: datetime
+class Patient(Base):
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("user.id"))
+    date_of_birth = Column(Date)
+    blood_type = Column(String(5))
+    emergency_contact = Column(String)
+    insurance_provider = Column(String)
+    insurance_policy_number = Column(String)
     
-    class Config:
-        from_attributes = True
-
-class PatientListResponse(BaseModel):
-    patients: List[PatientResponse]
-    total_count: int
-    page: int
-    size: int
+    user = relationship("User")
+    appointments = relationship("Appointment", back_populates="patient")

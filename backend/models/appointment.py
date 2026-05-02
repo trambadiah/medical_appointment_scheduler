@@ -1,31 +1,16 @@
-from pydantic import BaseModel, Field
-from typing import Optional, List
-from datetime import datetime, date
-from enum import Enum
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Text
+from sqlalchemy.orm import relationship
+from backend.db.base_class import Base
 
-class AppointmentStatus(str, Enum):
-    SCHEDULED = "SCHEDULED"
-    COMPLETED = "COMPLETED"
-    CANCELLED = "CANCELLED"
-    NO_SHOW = "NO_SHOW"
-
-class AppointmentBase(BaseModel):
-    patient_id: int
-    doctor_id: int
-    appointment_date: date
-    start_time: datetime
-    end_time: datetime
-    reason_for_visit: str = Field(..., max_length=500)
-    notes: Optional[str] = None
-
-class AppointmentCreate(AppointmentBase):
-    pass
-
-class AppointmentResponse(AppointmentBase):
-    id: int
-    status: AppointmentStatus
-    created_at: datetime
-    updated_at: datetime
-
-    class Config:
-        from_attributes = True
+class Appointment(Base):
+    id = Column(Integer, primary_key=True, index=True)
+    doctor_id = Column(Integer, ForeignKey("doctor.id"))
+    patient_id = Column(Integer, ForeignKey("patient.id"))
+    scheduled_time = Column(DateTime, index=True)
+    duration_minutes = Column(Integer, default=30)
+    status = Column(String(50), default="SCHEDULED") # SCHEDULED, COMPLETED, CANCELLED
+    notes = Column(Text)
+    
+    doctor = relationship("Doctor", back_populates="appointments")
+    patient = relationship("Patient", back_populates="appointments")
+    billing = relationship("Billing", back_populates="appointment", uselist=False)

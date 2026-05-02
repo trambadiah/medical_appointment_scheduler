@@ -1,29 +1,14 @@
-from pydantic import BaseModel, EmailStr, Field
-from typing import Optional, List
-from datetime import time, datetime
+from sqlalchemy import Column, Integer, String, Boolean, ForeignKey
+from sqlalchemy.orm import relationship
+from backend.db.base_class import Base
 
-class DoctorBase(BaseModel):
-    first_name: str
-    last_name: str
-    specialty: str
-    email: EmailStr
-    bio: Optional[str] = None
-    years_of_experience: int = Field(ge=0)
-
-class DoctorCreate(DoctorBase):
-    pass
-
-class DoctorResponse(DoctorBase):
-    id: int
-    is_active: bool
-    created_at: datetime
+class Doctor(Base):
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("user.id"))
+    specialty = Column(String, index=True)
+    license_number = Column(String, unique=True, index=True)
+    years_experience = Column(Integer)
+    is_accepting_patients = Column(Boolean, default=True)
     
-    class Config:
-        from_attributes = True
-
-class DoctorSchedule(BaseModel):
-    doctor_id: int
-    day_of_week: int = Field(ge=0, le=6)
-    start_time: time
-    end_time: time
-    is_available: bool = True
+    user = relationship("User")
+    appointments = relationship("Appointment", back_populates="doctor")
